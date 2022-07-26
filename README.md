@@ -1,2 +1,2 @@
 # Python
-Python projects and codes
+Python projects and practice git stacodes
