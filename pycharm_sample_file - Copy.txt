@@ -1,0 +1,1 @@
+This is how you write to a fileNow this will be written to another lineWhere do you think this will be written in the file?Obviously, the initial contents will be overwritten with these two linesWhere do you think this will be written in the file?Obviously, the initial contents will be overwritten with these two lines

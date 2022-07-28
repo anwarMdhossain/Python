@@ -1,0 +1,254 @@
+{
+  "states": [
+    {
+      "abbreviation": "AL",
+      "country": "USA",
+      "name": "Alabama"
+    },
+    {
+      "abbreviation": "AK",
+      "country": "USA",
+      "name": "Alaska"
+    },
+    {
+      "abbreviation": "AZ",
+      "country": "USA",
+      "name": "Arizona"
+    },
+    {
+      "abbreviation": "AR",
+      "country": "USA",
+      "name": "Arkansas"
+    },
+    {
+      "abbreviation": "CA",
+      "country": "USA",
+      "name": "California"
+    },
+    {
+      "abbreviation": "CO",
+      "country": "USA",
+      "name": "Colorado"
+    },
+    {
+      "abbreviation": "CT",
+      "country": "USA",
+      "name": "Connecticut"
+    },
+    {
+      "abbreviation": "DE",
+      "country": "USA",
+      "name": "Delaware"
+    },
+    {
+      "abbreviation": "FL",
+      "country": "USA",
+      "name": "Florida"
+    },
+    {
+      "abbreviation": "GA",
+      "country": "USA",
+      "name": "Georgia"
+    },
+    {
+      "abbreviation": "HI",
+      "country": "USA",
+      "name": "Hawaii"
+    },
+    {
+      "abbreviation": "ID",
+      "country": "USA",
+      "name": "Idaho"
+    },
+    {
+      "abbreviation": "IL",
+      "country": "USA",
+      "name": "Illinois"
+    },
+    {
+      "abbreviation": "IN",
+      "country": "USA",
+      "name": "Indiana"
+    },
+    {
+      "abbreviation": "IA",
+      "country": "USA",
+      "name": "Iowa"
+    },
+    {
+      "abbreviation": "KS",
+      "country": "USA",
+      "name": "Kansas"
+    },
+    {
+      "abbreviation": "KY",
+      "country": "USA",
+      "name": "Kentucky"
+    },
+    {
+      "abbreviation": "LA",
+      "country": "USA",
+      "name": "Louisiana"
+    },
+    {
+      "abbreviation": "ME",
+      "country": "USA",
+      "name": "Maine"
+    },
+    {
+      "abbreviation": "MD",
+      "country": "USA",
+      "name": "Maryland"
+    },
+    {
+      "abbreviation": "MA",
+      "country": "USA",
+      "name": "Massachusetts"
+    },
+    {
+      "abbreviation": "MI",
+      "country": "USA",
+      "name": "Michigan"
+    },
+    {
+      "abbreviation": "MN",
+      "country": "USA",
+      "name": "Minnesota"
+    },
+    {
+      "abbreviation": "MS",
+      "country": "USA",
+      "name": "Mississippi"
+    },
+    {
+      "abbreviation": "MO",
+      "country": "USA",
+      "name": "Missouri"
+    },
+    {
+      "abbreviation": "MT",
+      "country": "USA",
+      "name": "Montana"
+    },
+    {
+      "abbreviation": "NE",
+      "country": "USA",
+      "name": "Nebraska"
+    },
+    {
+      "abbreviation": "NV",
+      "country": "USA",
+      "name": "Nevada"
+    },
+    {
+      "abbreviation": "NH",
+      "country": "USA",
+      "name": "New Hampshire"
+    },
+    {
+      "abbreviation": "NJ",
+      "country": "USA",
+      "name": "New Jersey"
+    },
+    {
+      "abbreviation": "NM",
+      "country": "USA",
+      "name": "New Mexico"
+    },
+    {
+      "abbreviation": "NY",
+      "country": "USA",
+      "name": "New York"
+    },
+    {
+      "abbreviation": "NC",
+      "country": "USA",
+      "name": "North Carolina"
+    },
+    {
+      "abbreviation": "ND",
+      "country": "USA",
+      "name": "North Dakota"
+    },
+    {
+      "abbreviation": "OH",
+      "country": "USA",
+      "name": "Ohio"
+    },
+    {
+      "abbreviation": "OK",
+      "country": "USA",
+      "name": "Oklahoma"
+    },
+    {
+      "abbreviation": "OR",
+      "country": "USA",
+      "name": "Oregon"
+    },
+    {
+      "abbreviation": "PA",
+      "country": "USA",
+      "name": "Pennsylvania"
+    },
+    {
+      "abbreviation": "RI",
+      "country": "USA",
+      "name": "Rhode Island"
+    },
+    {
+      "abbreviation": "SC",
+      "country": "USA",
+      "name": "South Carolina"
+    },
+    {
+      "abbreviation": "SD",
+      "country": "USA",
+      "name": "South Dakota"
+    },
+    {
+      "abbreviation": "TN",
+      "country": "USA",
+      "name": "Tennessee"
+    },
+    {
+      "abbreviation": "TX",
+      "country": "USA",
+      "name": "Texas"
+    },
+    {
+      "abbreviation": "UT",
+      "country": "USA",
+      "name": "Utah"
+    },
+    {
+      "abbreviation": "VT",
+      "country": "USA",
+      "name": "Vermont"
+    },
+    {
+      "abbreviation": "VA",
+      "country": "USA",
+      "name": "Virginia"
+    },
+    {
+      "abbreviation": "WA",
+      "country": "USA",
+      "name": "Washington"
+    },
+    {
+      "abbreviation": "WV",
+      "country": "USA",
+      "name": "West Virginia"
+    },
+    {
+      "abbreviation": "WI",
+      "country": "USA",
+      "name": "Wisconsin"
+    },
+    {
+      "abbreviation": "WY",
+      "country": "USA",
+      "name": "Wyoming"
+    }
+  ]
+}

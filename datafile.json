@@ -1,0 +1,14 @@
+{
+   "user": {
+      "name": "satyam kumar",
+      "age": 21,
+      "Place": "Patna",
+      "Blood group": "O+"
+   },
+   "user1": {
+      "name": "Sumit kumar",
+      "age": 31,
+      "Place": "Patna",
+      "Blood group": "O-"
+   }
+}

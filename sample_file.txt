@@ -1,0 +1,5 @@
+Pyhton is awesome!
+Pyhton is great!
+Pyhton is excellent!
+Pyhton is fabulous!This is contect manager using classThis is contect manager example using function decorator
+This is contect manager example using function decorator

@@ -1,0 +1,203 @@
+class A():
+    pass
+class B(A):
+    pass
+class My(object):
+    __metaclass__=A
+print(A.__class__)
+print(B.__class__)
+print(My.__class__)
+
+***********************
+
+import logging
+
+logging.warning('A warning')
+logging.info('A info')
+logging.error('A error')
+logging.debug('A debug')
+
+***********************
+
+import builtins
+print(builtins.__dict__.keys())
+
+
+*************************
+def foo(n):
+    if n<3:
+        yield 1
+    else:
+        return
+    yield 2
+
+n=2
+f=foo(n)
+
+for i in range(n):
+    print(f.__next__())
+
+***********************
+class A:
+    pass
+class B(A):
+    pass
+class C(object):
+    pass
+class D(C):
+    pass
+
+a=A()
+b=B()
+c=C()
+d=D()
+
+print(isinstance(a,type(b)))
+print(issubclass(C,C))
+print(isinstance(d,D))
+print(issubclass(C,(D,A,B,C)))
+
+************************************
+
+import warnings
+
+def deprecated(func):
+    def newFunc(*args,**kwargs):
+        warnings.warn('Call to deprecated function {}'.format(func.__name__),category=DeprecationWarning)
+        return func(*args,**kwargs)
+    return newFunc
+
+@deprecated
+def prod(x,y):
+    'Returns product of two numbers'
+    return x*y
+
+print(prod(12,12))
+print(prod.__name__)
+print(prod.__doc__)
+
+**********************************
+
+keys=[1,2,3,4]
+vals=["A","B","C","D"]
+
+print(dict(zip(keys,vals)))
+print({key : val for key in keys for val in vals})
+
+*********************************
+
+t1=tuple(1,2,3)
+
+*******************************
+
+class A(object):
+    pass
+class B(A):
+    pass
+class C(B):
+    pass
+class D(C,B):
+    pass
+
+print(D.__mro__)
+
+****************************
+class Base(object):
+    def __init__(self):
+        print("Base Created")
+class Child(Base):
+    def __init__(self):
+        super(Child).__init__()
+        print("Child Created")
+
+b=Base()
+c=Child()
+
+*****************************
+import sys
+print(sys.builtin_module_names)
+***************************
+
+def smart_divide(func):
+    def wrapper(*args):
+        a,b=args
+        if b==0:
+            print('opps')
+            return
+        return func(*args)
+    return wrapper
+
+@smart_divide
+def divide(a,b):
+    return a/b
+
+print(divide.__name__)
+print(divide(4,16))
+print(divide(8,0))
+
+*************************************
+
+lst=[1,2,3,4,4]
+elem = 4
+
+def check(lst,elem):
+    return lst.count(elem)>1
+
+def check1(lst,elem):
+    return (elem in lst and elem in lst[lst.index(elem)+1:])
+
+def check2(lst,elem):
+   try:
+       lst.remove(elem)
+       lst.remove(elem)
+   except:
+       return False
+   return True
+
+print(check(lst,elem))
+print(check1(lst,elem))
+print(check2(lst,elem))
+
+************************************************************
+def foo(n):
+    if n<3:
+        yield 1
+    else:
+        return
+    yield 2
+
+n=2
+f=foo(n)
+
+for i in range(n):
+    print(f.__next__())
+
+n=5
+f=foo(n)
+
+for i in range(n):
+    print(f.__next__())
+
+***************************************************************
+print('{0:$>2d}*{1:$>2d}={2:$>2d}'.format(5,10,5*10))
+
+******************************************
+def multipliers():
+    return [lambda x: i*x for i in range(4)]
+
+print([m(2) for m in multipliers()])
+
+********************************************\
+
+class MyType(type):
+    pass
+class SubType(MyType):
+    pass
+class MyObject(object):
+    __metaclass__=MyType
+
+print(MyType.__class__)
+print(SubType.__class__)
+print(MyObject.__class__)
+
+************************************************

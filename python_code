@@ -1,0 +1,2725 @@
+** Maximum number of recursion is possible 1000 in Python(subject to change)
+**Call by bvalue or call by reference does not exist in Python
+**__name__ is a built-in variable which evaluates to the name of the current module
+**implicit and explicit line joining method
+**The associativity is the order in which Python evaluates an expression containing multiple operators of the same precedence. 
+  Almost all operators except the exponent (**) support the left-to-right associativity. 
+  For example, the product (*) and the modulus (%) have the same precedence.
+
+not(6>10)
+print(format(8/9,".3f"))
+#left justification
+print(format("Hello","<40"))
+#right justification
+print(format("Hello",">40"))
+#centre justification
+print(format("Hello","^30"))
+
+help("keywords")
+
+#Unary operator contains single operand in an expression
+#Binary operator contains double operand in an expression
+
+*****************************
+import sys
+
+x = int(sys.argv[1])
+y=int(sys.argv[2])
+result =x+y 
+print(result)
+
+import sys
+ls_obj=[x*2 for x in range(10)]
+gn_obj=(x*2 for x in range(10))
+print(sys.getsizeof(ls_obj))
+print(sys.getsizeof(gn_obj))
+
+
+#Armstrong number programming
+print("Armstrong numbers are within range of 1001 is: ")
+for i in range(1001):
+    number=i
+    result=0 
+    pw=len(str(i))
+    while i!=0:
+        digit = i%10 
+        result=result+digit**pw
+        i=i//10
+    if result==number:
+        print(number)
+*****Types of arguements************
+
+def addition_numbers(a,b=3):
+    return a + b
+    
+#It is position type arguements 
+result = addition_numbers(5,6) 
+print("Result is : ",result)
+
+#It is keywords type arguements 
+result1=addition_numbers(b=3,a=6)
+print("Result1 is :",result1)
+
+#it is default type arguements 
+result2=addition_numbers(3)
+print("Result2 :",result2)
+================================
+#variable length arguements
+def addition_numbers(a,*b):
+    c = a
+    for i in b:
+        c = c + i 
+    print("Total is :",c)
+
+addition_numbers(2,3,5)
+================================
+#Keyworded variable length arguements
+def employee_details(name,**data):
+    print(name)
+    for i,j in data.items():
+        print(i,":",j)
+        
+employee_details("Anwar", age=31, city="Kolkata", profession="Engineer")
+=========================================================================
+
+****LIST*******
+lst = [23,12,14,30]
+lst1= ["Adam",'Sohel',"Sammi"]
+#print('Arhab' in lst1)
+
+for index,item in enumerate(lst1,start=6):
+    print(index, item)
+    
+new_lst1='; '.join(lst1)
+print(new_lst1)
+print(lst1)
+
+new_lst2=new_lst1.split(';')
+print(new_lst2)
+
+*******TUPLES*******
+tup1=("Adam","Aaban","Arhab","Sammi")
+tup2=tup1;
+print(tup1)
+print(tup2)
+
+for index,item in enumerate(tup2,start=4):
+    print(index,item)
+    
+tup3 =' - '.join(tup1)
+print(tup3)
+tup4=tup3.split(' - ')
+print(tup4)
+
+********SETS***************
+
+cs_courses ={"Math","Physics","Biology","Chemistry","Geography"}
+art_courses ={"History","Philoshopy","Geography","Sociology"}
+
+print(cs_courses)
+print(art_courses)
+
+print(cs_courses.intersection(art_courses))
+print(cs_courses.union(art_courses))
+print(cs_courses.difference(art_courses))
+
+for index,item in enumerate(cs_courses):
+    print(index,item)
+    
+cs_courses1=' - '.join(cs_courses)
+cs_courses2=cs_courses1.split(' - ')
+print(cs_courses1)
+print(cs_courses2)
+
+#Empty list
+lst=[]
+lst1 = list()
+print(lst)
+print(lst1)
+
+#Empty tuple
+tup=()
+tup1=tuple()
+print(tup)
+print(tup1)
+
+#Empty set
+se={} #It is not right as it denotes dictionary
+se1=set()
+print(se)
+print(se1)
+
+
+# set cannot have duplicates
+# Output: {1, 2, 3, 4}
+my_set = {1, 2, 3, 4, 3, 2}
+print(my_set)
+
+# we can make set from a list
+# Output: {1, 2, 3}
+my_set = set([1, 2, 3, 2])
+print(my_set)
+
+# set cannot have mutable items
+# here [3, 4] is a mutable list
+# this will cause an error.
+
+my_set = {1, 2, [3, 4]}
+
+#We can add a single element using the add() method, and multiple elements using the update() method. 
+#The update() method can take tuples, lists, strings or other sets as its argument. In all cases, duplicates are avoided.
+#A particular item can be removed from a set using the methods discard() and remove().
+#The only difference between the two is that the discard() function leaves a set unchanged if the element is not present in the set. 
+#On the other hand, the remove() function will raise an error in such a condition (if element is not present in the set).
+
+# Difference between discard() and remove()
+
+# initialize my_set
+my_set = {1, 3, 4, 5, 6}
+print(my_set)
+
+# discard an element
+# Output: {1, 3, 5, 6}
+my_set.discard(4)
+print(my_set)
+
+# remove an element
+# Output: {1, 3, 5}
+my_set.remove(6)
+print(my_set)
+
+# discard an element
+# not present in my_set
+# Output: {1, 3, 5}
+my_set.discard(2)
+print(my_set)
+
+# remove an element
+# not present in my_set
+# you will get an error.
+# Output: KeyError
+
+my_set.remove(2)
+
+#Similarly, we can remove and return an item using the pop() method.
+#Since set is an unordered data type, there is no way of determining which item will be popped. It is completely arbitrary.
+#We can also remove all the items from a set using the clear() method.
+
+# initialize my_set
+# Output: set of unique elements
+my_set = set("HelloWorld")
+print(my_set)
+
+# pop an element
+# Output: random element
+print(my_set.pop())
+
+# pop another element
+my_set.pop()
+print(my_set)
+
+# clear my_set
+# Output: set()
+my_set.clear()
+print(my_set)
+
+print(my_set)
+
+# initialize A and B
+A = {1, 2, 3, 4, 5}
+B = {4, 5, 6, 7, 8}
+
+print(A.union(B))
+print(B.union(A))
+print(A|B)
+print(A.intersection(B))
+print(B.intersection(A))
+print(A&B)
+print(A-B)
+print(B-A)
+print(A.difference(B))
+print(A^B)
+print(B^A)
+print(A.symmetric_difference(B))
+
+#frozenset is immutable
+froz = frozenset({1,2,3,4})
+froz.add(5)
+
+***********Global/globals()*************
+#Globals() will take all the global variable. So to change any global variable value you have to specify it explicitly
+a = 10
+b = 4
+C = 6
+
+def something():
+    global a
+    a=15
+    print("Inside something :",a)
+    
+def something_again():
+    a = 9
+    x=globals()['a']
+    print("Value of a inside something_again function: ",a)
+    print("Value of a global a inside something_again function: ",x)
+    globals()["a"] = 18
+    print("Value of a global a after change inside something_again function: ",globals()["a"])
+    
+something ()
+something_again ()
+print("Outside function: ",a)
+
+**********Anonymous block*********
+f = lambda n,n1 : n+n1
+
+sqrt_value = f(5,6)
+print(sqrt_value)
+
+
+***Manual programming to multiply two 2D array***********
+
+from numpy import *
+
+newArr1 = array([
+    [1, 2, 3],
+    [3, 4, 5],
+    [2, 3, 4]])
+ 
+newArr2 = array([
+    [2, 2, 3],
+    [3, 4, 5],
+    [7, 8, 5]])
+    
+newArr3=zeros([3,3])
+x=int(input("Enter the number of rows from 1st Array"))
+y=int(input("Enter the number of column from 2nd Array"))
+
+for i in range(x):
+    for j in range(y):
+        total = 0
+        for k in range(3):
+            val = newArr1[i][k]*newArr2[k][j]
+            total = total + val
+        newArr3[i][j] = total
+print(newArr3)
+
+
+**********finding count of even and odd number***************
+def even_odd(lst):
+    l_even = 0
+    l_odd = 0
+    for j in lst:
+        if j%2==0:
+            l_even =l_even + 1 
+        else:
+            l_odd =+1 
+    return l_even,l_odd
+
+x = int(input("Enter the number of values you want to insert in a list: "))
+lst=[]
+
+for i in range(x):
+    y=int(input("Enter the {} item: ".format(i+1)))
+    lst.append(y)
+
+print(lst)   
+even,odd=even_odd(lst)
+print("Even number count: {} \nOdd number count: {}".format(even,odd))
+
+
+*******Fibonacci series************
+def fib(n):
+    a = 0
+    b = 1 
+    print("Series is: ",end="")
+    if n==0:
+        print(a)
+    else:
+        print(a,"",end="")
+        print(b,"",end="")
+        for i in range(1,n-1):
+            c= a+b
+            a=b 
+            b=c
+            if c<=100:
+                print(c," ",end="")
+            else:
+                break
+    
+x =int(input("Enter the number of element you want to print"))
+if x>0:
+    fib(x)
+else:
+    print("The number of elements provided is not correct!! Please cross check again")
+    
+
+*******Factorial value calculation***************
+def fact(n):
+    f = 1;
+    for i in range(1,n+1):
+        f=f*i
+    return(f)
+
+x =int(input("Enter the number to calculate factorial"))
+if x>0:
+    fact_value=fact(x)
+    print("factorial of {} is: {}".format(x,fact_value))
+else:
+    print("Entered number is not correct!! Please cross check again")
+
+****Factorial through recursive function*******
+def fact(n):
+    if n==0:
+        return 1 
+    else:
+        return(n*fact(n-1))
+
+x =int(input("Enter the number to find factorial: "))
+result= fact(x)
+print("Factorial of {} is: {}".format(x,result))
+
+**another way:
+=============
+import time
+
+factorial= lambda n: 1 if n==0 else n*factorial(n-1)
+
+x=int(input("Enter the number to find out factorial: "))
+t0=time.time()
+z= factorial(x)
+t1 = time.time()
+#print("Factorial of {} is {} ".format(x,z))
+print("Time taken: %.5f s"%(t1-t0))
+
+******Anonymous Block********
+f = lambda a : a*a
+
+x=int(input("Enter the number to find square root"))
+result = f(x)
+print("Square root of {} is {}".format(x,result))
+
+********Even number using filter() function*********
+##Filter() function takes two arguement , 1.Function 2. list and return a value in sequence
+
+def is_even(n):
+    if n%2==0:
+        return n
+
+x=int(input("Enter the number of element to be put in list"))
+lst=[]
+for i in range(1,x+1):
+    y=int(input("Enter the {} element".format(i)))
+    lst.append(y)
+
+print("Your list is: ",lst)
+f=list(filter(is_even,lst))
+print("Even numbers list: ",f)
+
+####Using Lambda
+-----------------
+x=int(input("Enter the number of element to be put in list"))
+lst=[]
+for i in range(1,x+1):
+    y=int(input("Enter the {} element".format(i)))
+    lst.append(y)
+
+print("Your list is: ",lst)
+f=list(filter(lambda n: n%2==0,lst))
+print("Even numbers list: ",f)
+
+**********************filter(),map(),reduce()**************************************
+#map() function returns an iterable object. so to covert the resultant you need to capture in a list
+
+from functools import *
+
+x=int(input("Enter the number of element to be put in list"))
+lst=[]
+for i in range(1,x+1):
+    y=int(input("Enter the {} element".format(i)))
+    lst.append(y)
+
+print("Your list is: ",lst)
+even=list(filter(lambda n: n%2==0,lst))
+print("Even numbers list: ",even)
+
+l_map = list(map(lambda n:n*2,even))
+print("After map activity :",l_map)
+
+num1=[1,2,3,4,5]
+num2=[5,6,7,8,9]
+
+result = map(lambda x1,x2: x1+x2 , num1, num2)
+print(list(result))
+
+l_reduce=reduce(lambda n1,n2:n1+n2,l_map)
+print("Total after applying reduce function :",l_reduce)
+
+
+#Emample1:
+==========
+string_it = ["processing ", " strings", " with ", "map  "]
+string_it1 = ["..processing...", "strings..", "with..", "..map"]
+#mod_string=map(str.capitalize,string_it)
+#mod_string=map(str.upper,string_it)
+#mod_string=map(str.lower,string_it)
+#mod_string=map(str.swapcase,string_it)
+#mod_string=map(str.title,string_it)
+#mod_string=map(str.strip,string_it)
+mod_string=map(lambda x:x.strip('.'),string_it1)
+print(list(mod_string))
+
+text = """Some people, when confronted with a problem, think
+... "I know, I'll use regular expressions."
+... Now they have two problems. Jamie Zawinski"""
+
+import re
+
+def punctuation_remove(word):
+    return re.sub(r'["|^;,:!.]',"",word)
+
+ls=text.split()
+map_ls=list(map(punctuation_remove,ls))
+print(map_ls)
+
+#returns UNICODE value of a character
+print(ord("a"))
+print(chr(87))
+
+**************Decorators***************************
+
+Syntax for Decorator: 
+ 
+
+@gfg_decorator
+def hello_decorator():
+    print("Gfg")
+
+'''Above code is equivalent to -
+
+def hello_decorator():
+    print("Gfg")
+    
+hello_decorator = gfg_decorator(hello_decorator)'''
+
+
+Example 1:
+=========
+def greet(text):
+    print("Hello {}!!".format(text))
+
+greet("Sammi")
+
+greet_again=greet
+greet_again("Sohel")
+
+Example 2:
+=========
+def upper(text):
+    print(text.upper())
+
+def lower(text):
+    print(text.lower())
+
+#Decorator takes function name as arguement
+def decorator_func(func): 
+    greet=func("Hello!! My name is Anwar!")
+    return(greet)
+    
+decorator_func(upper)
+decorator_func(lower)
+
+
+Example 3:
+=========
+#Decorator function
+def decorator_func(func):
+    print("Inside decorator function!!")
+    def inner_func(x):
+        print("Inside inner function: ",x)
+        func()
+        print("Before inner function get finished",x)
+    return inner_func
+    
+def execute_func():
+    print("Function execution starts!!")
+
+execute_func1 = decorator_func(execute_func)
+execute_func1(10)
+
+Example 4:
+==========
+import math as m
+import time as t 
+
+def decorate_fact(func):
+    print("Inside decorate function!!")
+    def calculate_time(y):
+        start_time = t.time()
+        func(y)
+        end_time = t.time()
+        print("Execution time of ",func.__name__,"is:",end_time-start_time)
+    return calculate_time
+
+x=int(input("Enter the number to find out factorial value: "))
+#Decorator
+@decorate_fact
+def factorial(num):
+    print("Inside factorial function!!")
+    print("Factorial of {} is: {}".format(num,m.factorial(num)))
+
+factorial(x)
+
+Example 5:
+==========
+****What if a function returns something or an argument is passed to the function?
+
+def hello_decorator(func):
+    def inner1(*args, **kwargs):
+         
+        print("before Execution")
+         
+        # getting the returned value
+        returned_value = func(*args, **kwargs)
+        print("after Execution")
+         
+        # returning the value to the original frame
+        return returned_value
+         
+    return inner1
+ 
+ 
+# adding decorator to the function
+@hello_decorator
+def sum_two_numbers(a, b):
+    print("Inside the function")
+    return a + b
+ 
+a, b = 1, 2
+ 
+# getting the value through return of the function
+print("Sum =", sum_two_numbers(a, b))
+ 
+Example 6:
+==========
+def decorator_mult(func):
+    print("Inside decorator function")
+    def inner(*x,**y):
+        print("Inside inner function")
+        z=func(*x,**y)
+        print("Arguements passed to ",func.__name__, " -",
+        x,"and -",y)
+        print("Multiplication is :",z)
+    return inner
+    
+@decorator_mult
+def mult(a,b):
+    return a*b 
+
+mult(4,3)
+mult(6,b=4)
+mult(b=3,a=2)
+
+*************************Object Oriented programming*************************
+
+**Class is design and object is an instance of that design
+**class contains attributes(variables) and behaviour(method)
+**self represents the instance of the class. By using the “self” keyword we can access the attributes and methods of the class in python. 
+It binds the attributes with the given arguments.The reason you need to use self. is because Python does not use the @ syntax to refer to instance attributes. 
+Python decided to do methods in a way that makes the instance to which the method belongs be passed automatically, but not received automatically: 
+the first parameter of methods is the instance the method is called on.
+***Self is always pointing to Current Object.
+***Self is the first argument to be passed in Constructor and Instance Method.
+***Self is a convention and not a Python keyword
+**Instance variable and class variables
+**namespace is an area in the memory where you create/store variable and object
+** class variables are called static variables as well
+**Three types of methods are there 1. class methods 2.Static methods 3.Instance methods
+***In python static methods and class methods are not same like variables
+***Instance methods are two type...1. Accessor methods(get) 2. mutation methods(set)
+***Instance methods can also chnage the state of class 
+*****Dunder or magic method
+***Namespaces in Python*****
+A namespace is a collection of currently defined symbolic names along with information about the object that each name references. 
+You can think of a namespace as a dictionary in which the keys are the object names and the values are the objects themselves. 
+Each key-value pair maps a name to its corresponding object.
+As Tim Peters suggests, namespaces aren’t just great. They’re honking great, and Python uses them extensively. In a Python program, there are four types of namespaces:
+
+1. Built-In
+2. Global
+3. Enclosing
+4. Local
+
+These have differing lifetimes. As Python executes a program, it creates namespaces as necessary and deletes them when they’re no longer needed. 
+Typically, many namespaces will exist at any given time.
+
+
+Example 1:
+===========
+class car:
+    pass
+    car_count = 0
+    car_wheel = 4
+    #constructor
+    def __init__(self,model,colour):
+        self.model=model
+        self.colour=colour
+        
+        car.car_count +=1
+    #functions to display car details    
+    def car_show(self):
+        print("Colur of {} is {} ".format(self.model,self.colour))
+        
+    def car_wheel_info(self):
+        print("Car has ",self.car_wheel," wheel")
+
+print(car.car_count)       
+Audi=car("Audi V3","Red")
+Mercedez=car("Marcedez Benz","Black")
+print(car.car_count)  
+
+Audi.car_wheel_info()
+Audi.car_wheel=5
+Audi.car_wheel_info()
+print(Audi.__dict__)
+print(car.__dict__)
+
+#Option 1
+Audi.car_show()
+Mercedez.car_show()
+
+#Option 2
+car.car_show(Audi)
+car.car_show(Mercedez)
+
+Example 2:
+==========
+import datetime
+class employee:
+    first_increment = 10
+    second_increment = 20
+    revised_salary = 0
+    
+    def __init__(self,first_name,last_name,salary,designation,email):
+        self.fname=first_name
+        self.lname=last_name
+        self.designation=designation
+        self.salary=salary
+        self.email=email
+        
+    #instance method
+    def show_emloyee_details(self):
+        print(self.fname +' '+ self.lname +' '+ self.salary +' '+ self.designation +' '+ self.email)
+    #class methods
+    @classmethod
+    def employee_salary_increment(cls,revised_increment):
+        cls.first_increment = cls.first_increment + revised_increment
+        cls.second_increment = cls.second_increment + revised_increment
+    
+    @classmethod
+    def set_employee_details(cls,emp_string1):
+        first_name,last_name,salary,designation,email =emp_string1.split('-')
+        return cls(first_name,last_name,salary,designation,email)
+        
+    @staticmethod
+    def employee_time(days):
+        if days.weekday == 6 or days.weekday==7:
+            return False
+        return True
+    
+emp1=employee("Anwar","Hossain","60000","AST","anwar.hossain@tcs.com")
+emp2=employee("Manwar","Hossain","100000","Assoc","manwar.hossain@tcs.com")
+
+emp1.show_emloyee_details()
+emp2.show_emloyee_details()
+
+employee.employee_salary_increment(5)
+#print(employee.first_increment)
+#print(employee.second_increment)
+
+#emp_string=input("Enter the name of employee details")
+#new_emp=employee.set_employee_details(emp_string)
+#print(new_emp.fname +' '+new_emp.lname)
+
+#first_name,last_name,salary,designation,email =emp_string.split('-')
+#emp3 = employee(first_name,last_name,salary,designation,email)
+
+day = datetime.date(2019,6,17)
+print(employee.employee_time(day))
+
+
+****Inner class example
+
+class color:
+    def __init__(self):
+        self.color = "Green"
+        self.color_type = self.LightGreen()
+        
+    def show(self):
+        print("Color is: ",self.color)
+    
+    class LightGreen:
+        def __init__(self):
+            self.colorshade ='OliveGreen'
+            self.colorcode = 'O2EX3'
+            
+        def display(self):
+            print("{} color code is {}".format(self.colorshade,self.colorcode))
+            
+cl =color()
+cl.show()
+
+clt=cl.LightGreen()
+clt.display()
+
+cl.color_type.display()
+
+***********************Inheritence**********************************************
+#Inherited class object will try to search for constructor inside itself first, if it is not there then it will go to search for parent class constructor
+#MRO - Method resolution Order which says inherir from left to right. This concept is useful to understand in case of multiple inheritence
+
+class employee:
+    first_increment = 10
+    second_increment = 20
+    revised_salary = 0
+    
+    def __init__(self,first_name,last_name,salary,designation,email):
+        self.fname=first_name
+        self.lname=last_name
+        self.designation=designation
+        self.salary=salary
+        self.email=email
+        
+    #instance method
+    def show_emloyee_details(self):
+        print(self.fname +' '+ self.lname +' '+ self.salary +' '+ self.designation +' '+ self.email)
+    #class methods
+    @classmethod
+    def employee_salary_increment(cls,revised_increment):
+        cls.first_increment = cls.first_increment + revised_increment
+        cls.second_increment = cls.second_increment + revised_increment
+    
+    @classmethod
+    def set_employee_details(cls,emp_string1):
+        first_name,last_name,salary,designation,email =emp_string1.split('-')
+        return cls(first_name,last_name,salary,designation,email)
+        
+class developer(employee):
+    def __init__(self,first_name,last_name,salary,designation,email,prog_lang):
+        #super().__init__(first_name,last_name,salary,designation,email)
+        employee.__init__(self,first_name,last_name,salary,designation,email)
+        self.prog_lang = prog_lang
+        
+class manager(employee):
+    def __init__(self,first_name,last_name,salary,designation,email,employees=None):
+        super().__init__(first_name,last_name,salary,designation,email)
+        if employees is None:
+            self.employees=[]
+        else:
+            self.employees=employees
+
+    def employee_details(self):
+        for emp in self.employees:
+            print("-->",emp.show_emloyee_details())
+            
+    def add_employee(self,emp):
+        if emp not in self.employees:
+            self.employees.append(emp)
+            
+    def remove_employee(self,emp):
+        if emp in self.employees:
+            self.employees.remove(emp)
+
+emp1=employee("Anwar","Hossain","60000","AST","anwar.hossain@tcs.com")
+emp2=employee("Manwar","Hossain","100000","Assoc","manwar.hossain@tcs.com")
+
+#dev1=developer("Anwar","Hossain","60000","AST","anwar.hossain@tcs.com","JAVA")
+#dev2=developer("Manwar","Hossain","100000","Assoc","manwar.hossain@tcs.com","Python")
+
+#print(dev1.prog_lang)
+
+mgr1=manager("Junaina","Parveen","100000","Senior assoc","junaina.Parveen@tcs.com",[emp1])
+mgr1.show_emloyee_details()
+mgr1.add_employee(emp2)
+mgr1.employee_details()
+mgr1.remove_employee(emp1)
+mgr1.employee_details()
+
+print(isinstance(mgr1,manager))
+print(issubclass(manager,developer))
+
+
+****multiple inheritence with super clause
+class A:
+    def __init__(self):
+        print("Inside constructor of A")
+    def method1(self):
+        print("Inside first method under class A")
+    def method2(self):
+        print("Inside second method under class A")
+        
+class B:
+    def __init__(self):
+        print("Inside constructor of B")
+    def method1(self):
+        print("Inside first method under class B")
+    def method2(self):
+        print("Inside second method under class B")
+        
+class C(A,B):
+    def __init__(self):
+        super().__init__()
+        print("Inside constructor of C")
+    def method3(self):
+        print("Inside third method under class C")
+    def method4(self):
+        super().method2()
+        
+c1=C()
+c1.method1()
+c1.method4()
+
+***********************Magic/Dunder method***************************
+#Python __str__() method returns the string representation of class object and it is being called when print() or str() method is invoked by using object.
+#str() is used for creating output for end user while repr() is mainly used for debugging and development. repr’s goal is to be unambiguous and str’s is to be readable. 
+# <object>.__repr__() is equivalent to repr(<object>)
+# <object>.__str__() is equivalent to str(<object>)
+
+class Person:
+    def __init__(self,name,age,area,salary):
+        self.name = name
+        self.age = age
+        self.area = area
+        self.salary =salary
+        
+    def __repr__(self):
+        return "{} from {} is {} years old and earning {} Rs!!".format(self.name,self.area,self.age,self.salary)
+        
+    def __str__(self):
+       return "Details of person Name={} age={} area={} salary={}".format(self.name,self.age,self.area,self.salary)
+    
+p1=Person("Sammi",30,"Malda",30000)
+p2=Person("Sohel",31,"Farakka",60000)
+print(p1)
+
+#print(p.__repr__())
+#print(p.__str__())
+
+#print(repr(P1))
+#print(str(P1))
+
+print(int.__add__(2,3))
+print(str.__add__("Sammi","Sohel"))
+print('Test'.__len__())
+
+
+***********POLYMORPHISM***********************
+
+1. Duck typing
+2. operator overloading
+3. method overloading
+4. method overriding
+
+
+*******************1.Duck typing****************
+
+class Bird:
+    def fly(self):
+        print("Bird can fly")
+class Flight:
+    def fly(self):
+        print("Flight can fly")
+class Human:
+    def swim(self):
+        print("Human can swim")
+        
+for obj in Bird(),Flight(),Human():
+    obj.fly()
+    
+Output - 
+
+Bird can fly
+Flight can fly
+Traceback (most recent call last):
+  File "main.py", line 15, in <module>
+    obj.fly()
+AttributeError: 'Human' object has no attribute 'fly'
+
+**********2.Operator overloading*****************
+#Synthetic sugar
+#Operator Overloading means giving extended meaning beyond their predefined operational meaning. 
+#For example operator + is used to add two integers as well as join two strings and merge two lists.
+#It is achievable because ‘+’ operator is overloaded by int class and str class. You might have noticed that the same built-in operator or function shows 
+#different behavior for objects of different classes, this is called Operator Overloading.
+
+
+class OperatorOverload:
+    def __init__(self,op1,op2):
+        self.op1 = op1
+        self.op2 = op2
+        
+    def __add__(self,other):
+        m1=self.op1 + other.op1
+        m2=self.op2 + other.op2
+        m3 = m1 + m2
+        return m3
+        
+opl1 = OperatorOverload(2,3)
+opl2 = OperatorOverload(3,4)
+
+print("Result: ", opl1+opl2)
+
+**********3. method overloading*********************
+
+#Python does not support method overloading but we have other options to adopt this features
+
+class MethodOverload:
+    def add_sample1(self,*args):
+        sum = 0
+        for arg in args:
+            sum = sum + arg
+        print("Result is : ",sum)
+        
+    def add_sample2(self,a=None,b=None,c=None):
+        if a!=None and b!=None and c!=None:
+            print("Result : ",a+b+c)
+        elif (a!=None and b!=None):
+            print("Result : ",a+b)
+        elif (a!=None and c!=None):
+            print("Result : ",a+c) 
+        elif (b!=None and c!=None):
+            print("Result : ",b+c)
+        else:
+            print("Result : 0")
+
+mo1 = MethodOverload()
+
+mo1.add_sample1(2,3,4,5)
+mo1.add_sample2(4)
+
+#Method overloading is a example of compile time polymorphism.Whereas method overriding is a example of run time polymorphism.
+#
+
+*****************Abstract classes***************
+
+ABC = Abstract base classes
+#A method which has only declaration but does not have body or definition is called abstract method
+#there cannot be an object for abstract class
+#Concrete classes contain only concrete (normal)methods whereas abstract classes may contain both concrete methods and abstract methods
+
+from abc import ABC,abstractmethod
+
+class Polygon(ABC):
+    @abstractmethod
+    def noofsides(self):
+        pass
+ 
+class Triangle(Polygon):
+ 
+    # overriding abstract method
+    def noofsides(self):
+        print("I have 3 sides")
+ 
+class Pentagon(Polygon):
+ 
+    # overriding abstract method
+    def noofsides(self):
+        print("I have 5 sides")
+ 
+class Hexagon(Polygon):
+ 
+    # overriding abstract method
+    def noofsides(self):
+        print("I have 6 sides")
+ 
+class Quadrilateral(Polygon):
+ 
+    # overriding abstract method
+    def noofsides(self):
+        print("I have 4 sides")
+ 
+# Driver code
+R = Triangle()
+R.noofsides()
+ 
+K = Quadrilateral()
+K.noofsides()
+ 
+R = Pentagon()
+R.noofsides()
+ 
+K = Hexagon()
+K.noofsides()
+
+*****************Iterator***************************
+#Iterator in python is an object that is used to iterate over iterable objects like lists, tuples, dicts, and sets. 
+#The iterator object is initialized using the iter() method. It uses the next() method for iteration.
+
+Eaxmple 1:
+==========
+class TopTen():
+    def __init__(self,limit):
+        self.limit = limit
+        
+    def __iter__(self):
+        self.x = 1 
+        return self
+     
+    def __next__(self):
+        x=self.x 
+        if x < self.limit:
+            self.x +=1 
+        else:
+            raise StopIteration
+        return x
+
+t1=TopTen(10)
+
+for i in t1:
+    print(i)
+ 
+
+ 
+Example 2:
+==========
+print("Iteration inside list")
+ls = [2,3,4,5,6]
+for i in ls:
+    print(i)
+
+print("Iteration inside Tupes")
+tp=(4,5,6,7)
+for i in tp:
+    print(i)
+    
+print("Iteration inside Set")
+st={3,4,5,6,7,4} #ignores duplicate value
+for i in st:
+    print(i)
+    
+print("Iteration inside Dictionary") 
+d=dict()
+d["Anwar"]= "Engineer"
+d["Sammi"] = "Housewife"
+for i in d:
+    print("%s: %s" %(i,d[i]))
+
+Example 3:
+==========
+nums = [1,2,3,4,5,6]
+i_nums=iter(nums)
+while True:
+    try:
+        i=next(i_nums)
+        print(i)
+    except StopIteration:
+        break
+
+********************Generator Function***************************************
+
+#Generator-Function : A generator-function is defined like a normal function, but whenever it needs to generate a value, it does so with the yield keyword rather than return. 
+#If the body of a def contains yield, the function automatically becomes a generator function.
+#So a generator function returns an generator object that is iterable, i.e., can be used as an Iterators .
+
+def genrator_fib(limit):
+    a,b = 0,1 
+    while a <=limit:
+        yield a 
+        a,b = b,a+b 
+
+values = genrator_fib(10)
+
+for i in values:
+    print(i)
+    
+
+******************Generator Expression*****************************************
+#The generator expression is an anonymous generator function
+
+Example
+*******
+numbers = [1, 2, 3, 4, 5, 6]
+
+def square(number):
+    return number ** 2
+    
+gen_obj=(square(x) for x in numbers)
+print(list(gen_obj))
+
+#List comprehension in Python is an easy and compact syntax for creating a list from a string or another list. 
+#It is a very concise way to create a new list by performing an operation on each item in the existing list. 
+#List comprehension is considerably faster than processing a list using the for loop.
+
+**List Comprehension Syntax: [expression for element in iterable if condition]
+#the whole expression  should be inside []
+
+squares = [x*x for x in range(10) if (x*x)%2==0]
+print(squares)
+
+odd_even_list = ["Even" if x%2==0 else "Odd" for x in range(10)]
+print(odd_even_list)
+
+odd_even_list1 = [str(x)+":Even" if x%2==0 else str(x)+":Odd" for x in range(10)]
+print(odd_even_list1)
+
+matrix = [(1,2,3),(4,5,6),(7,8,9),(10,11,12)]
+flatlist = [nums for row in matrix for nums in row]
+print(flatlist)
+
+
+**************************************Errors********************************************
+
+Errors are of three types:
+1.Compile time error
+2.Logical error
+3.Runtime error
+
+
+3. Runtime error*********
+
+try:
+    # Some Code.... 
+except:
+    # optional block
+    # Handling of exception (if required)
+else:
+    # execute if no exception
+finally:
+    # Some code .....(always executed)
+
+Example Code:
+=============
+
+try:
+    x = int(input("Enter the first positive number"))
+    y = int(input("Enter the second positive number"))
+    
+    if x<0 or y<0:
+        raise ValueError(x,y)
+    else:
+        z = x/y
+except ValueError as e:
+    print("Wrong input value is given", e)
+except ZeroDivisionError as e:
+    print("Divisor value is wrong!!",e)
+except Exception as e:
+    print("Exception occurred: ",e)
+else:
+    print("Exception did not occur!!")
+finally:
+    print("Program execution stopped!!")
+    
+*************************MultiThreading**************************
+#Main Thread -- every program will have atleast one thread which is Main thread!!
+#threading.Thread(<program to be executed>,<Arguements to be passed>) --> threading.current_thread()
+
+Example 1:
+=========
+
+from time import sleep
+from threading import *
+
+class Hello(Thread):
+    def run(self):
+        for i in range(5):
+            print("Hello")
+            sleep(1)
+
+class Hi(Thread):
+    def run(self):
+        for j in range(5):
+            print("Hi")
+            sleep(1)
+
+t1 = Hello()
+t2 = Hi()
+
+t1.start()
+sleep(0.2)
+t2.start()
+
+t1.join()
+t2.join()
+print("Bye Bye")
+
+Example 2:
+=========
+import threading 
+
+def print_cube(num):
+    print("Cube of {} is {}".format(num,num*num*num))
+    
+def print_square(num):
+    print("Square of {} is {}".format(num,num*num))
+    
+if __name__=="__main__":
+    t1=threading.Thread(target=print_cube,args=[10])
+    t2=threading.Thread(target=print_square,args=[20])
+    
+    t1.start()
+    t2.start()
+    
+    t1.join()
+    t2.join()
+    
+print("Bye")
+
+****************File handling**************************
+
+f = open("MyDetails","r")
+print(f.mode)
+print(f.readline(),end="#")
+print(f.readline(3))
+
+f1 = open("MyMoreDetails","a")
+f1.write("I am married")
+f1.write("My wife name is Junaina")
+
+
+#Context Managers -- No need to close the file as once the block is finished automatically file would be closed
+
+Reading file contents -->
+
+Example1:
+=========
+with open("MyDetails","r") as f:
+    
+    #for data in f:
+    #    print(data,end="")
+
+    f_contens = f.read(50)
+    print(f_contens)
+    
+    f.seek(0)
+    
+    f_contens = f.read(50)
+    print(f_contens)
+    
+    #print(f.tell())
+    #print(f.closed)
+    #print(f.mode)
+    #print(f.name)
+    
+    #f_contens = f.readline()
+    #print(f_contens,end="")
+    #f_contens = f.readlines()
+    #print(f_contens)
+
+Example 2:
+===========
+with open("MyDetails","r") as rf:
+    with open("MyDetails_copy","w") as wf:
+        for line in rf:
+            wf.write(line)
+
+with open("MyDetails_copy","r") as wcf:
+    print(wcf.read())
+    
+#In Python, the csv.reader() module is used to read the csv file. It takes each row of the file and makes a list of all the columns.
+
+import csv
+
+with open("EmployeeDetails.csv","r") as csf:
+    csv_reader=csv.reader(csf)
+    #To move the cursor from first row
+    #next(csv_reader)
+    #for line in csv_reader:
+    #    print(line)
+    #    #print(line[2])
+    with open("EmployeeMoreDetails.csv","w") as wsf:
+        csv_writer=csv.writer(wsf,delimiter='\t')
+        for line in csv_reader:
+            csv_writer.writerow(line)
+            
+    #with open("EmployeeMoreDetails.csv","r") as rsf:
+    #    csv_read = csv.reader(rsf,delimiter='\t')
+    #    for line_rec in csv_read:
+    #        print(line_rec)
+    
+    with open("EmployeeDetails.csv","r") as dsf:
+        csv_dictread = csv.DictReader(dsf)
+        for line_dict in csv_dictread:
+            print(line_dict)
+            #print(line_dict['LastName'])
+            
+    
+******
+
+import csv
+
+with open("EmployeeDetails.csv","r") as dsf:
+    csv_dictreader=csv.DictReader(dsf)
+    
+    with open("EmployeeDictdetails.csv","w") as dwf:
+        FieldNames =["FirstName", "LastName", "EmailId"]
+        csv_dictwrite = csv.DictWriter(dwf,fieldnames=FieldNames,delimiter='\t')
+        csv_dictwrite.writeheader()
+        
+        for line_dict in csv_dictreader:
+            del line_dict['EmailId']
+            csv_dictwrite.writerow(line_dict)
+            
+    with open("EmployeeDictdetails.csv","r") as rdf:
+        csv_dictreader_copy = csv.DictReader(rdf,delimiter='\t')
+        for line_dict_copy in csv_dictreader_copy:
+            print(line_dict_copy)
+            
+****************************************************************************************
+#Linear search using Python
+
+pos =-1
+
+def search(list_arr,num):
+    #i=0 
+    #while i<len(list_arr):
+    #    if list_arr[i]==num:
+    #        globals()["pos"]=i
+    #        return True
+    #    i=i+1
+    #return False
+    
+    for it in range(len(list_arr)):
+        if list_arr[it]==num:
+            globals()["pos"]=it
+            return True
+    return False
+        
+list_arr =[10,3,4,6,7,12,5]
+n=int(input("Enter the number to be Searched: "))
+if search(list_arr,n):
+    print("Searched item is found at ",pos)
+else:
+    print("Searched item is not found")
+    
+******#Binary search on sorted list through Python
+
+pos =-1
+def search(list_arr,num):
+    lb=0 
+    #always good practice to decrease the size of list by 1 to avoid any Exception
+    ub=len(list_arr)-1
+    try:
+        while lb<=ub:
+            mid=(lb+ub)//2
+            #print(mid)
+            if list_arr[mid]==num:
+                globals()["pos"]=mid
+                return True
+            else:
+                if num < list_arr[mid]:
+                    ub=mid-1
+                else:
+                    lb=mid+1
+        return False
+    except Exception as ex:
+        print(ex)
+        
+list_arr =[10,3,4,6,7,12,5,15,16,17,32,21,20,15]
+print(len(list_arr))
+list_arr.sort()
+#print(list_arr)
+n=int(input("Enter the number to be Searched: "))
+if search(list_arr,n):
+    print("Searched item is found at ",pos)
+else:
+    print("Searched item is not found")
+    
+    
+************************************************************************
+
+from itertools import chain
+
+r1 = range(10,0,-2)
+r2 = range(20,10,-2)
+r3 = range(30,20,-2)
+
+c = list(chain(r1,r2,r3))
+#print(c)
+c.sort(reverse=False)
+print(c) 
+
+***************** *****************************************************
+
+#Bubble sort using Python
+def bubble_sort(nums):
+    for i in range(len(nums)-1,0,-1):
+        for j in range(i):
+            if nums[j]>nums[j+1]:
+                temp = nums[j]
+                nums[j]=nums[j+1]
+                nums[j+1]=temp
+        print("Iteration {}: ".format(i),nums)
+
+nums=[10,2,4,5,6,18,9,20,32]
+print("Before sorting: ",nums)
+bubble_sort(nums)
+print("After sorting: ",nums)  
+
+
+#Selection sort using Python
+def selection_sort(nums):
+    for i in range(len(nums)):
+        minpos=i 
+        for j in range(i,len(nums)):
+            if nums[j]<nums[minpos]:
+                minpos=j
+        #Approach 1        
+        #nums[i],nums[minpos] = nums[minpos],nums[i] 
+        #Approach 2
+        temp=nums[i]
+        nums[i]=nums[minpos]
+        nums[minpos]=temp
+        
+        print("Iteration {} : ".format(i),nums)
+        
+nums=[10,2,4,5,6,18,9,20,32]
+print("Before sorting: ",nums)
+selection_sort(nums)
+print("After sorting: ",nums) 
+
+
+#Insertion sort using Python
+def insertion_sort(nums):
+    for i in range(1,len(nums)):
+        key=nums[i]
+        j=i-1
+        while j>=0 and key<nums[j]:
+            nums[j+1]=nums[j]
+            j=j-1
+        nums[j+1]=key 
+        print("Iteration {}: ".format(i),nums) 
+
+#nums=[10,2,4,5,6,18,9,20,32]
+nums=input("Enter the list of items").split()
+nums= [int(x) for x in nums]
+print("Before sorting: ",nums)
+insertion_sort(nums)
+print("After sorting: ",nums) 
+
+==============================================================
+
+#PIP is a package manager for Python packages, or modules if you like.  
+
+import camelcase
+
+c = camelcase.CamelCase()
+txt = "lorem ipsum dolor sit amet"
+print(c.hump(txt))
+
+=================================================================
+
+#Conection with MySQL
+
+import mysql.connector
+conn = mysql.connector.connect(
+    host='localhost',
+    user='root',
+    passwd='1234'
+)
+cursor = conn.cursor()
+cursor.execute('SELECT * FROM sakila.actor LIMIT 5')
+for row in cursor: print(row)
+conn.close()
+
+
+#Connection with Oracle
+pip install cx_oracle
+
+import cx_Oracle
+dsn = cx_Oracle.makedsn(
+    'localhost', 
+    '1521', 
+    service_name='orcl'
+)
+conn = cx_Oracle.connect(
+    user='hr', 
+    password='hr', 
+    dsn=dsn
+)
+c = conn.cursor()
+c.execute('SELECT * FROM employees WHERE ROWNUM <= 10')
+for row in c: print(row)
+conn.close()
+
+#Connection with SQL Server
+pip install pyodbc
+
+import pyodbc
+conn = pyodbc.connect(
+    'Driver={SQL Server};'
+    'Server=DESKTOP-TLF7IMQ\SQLEXPRESS;'
+    'Database=retail;'
+    'Trusted_Connection=yes;'
+)
+cursor = conn.cursor()
+cursor.execute('SELECT TOP 5 * FROM dbo.table_transactions')
+for row in cursor: print(row)
+conn.close()
+
+#Connection with PostgreSQL
+pip install psycopg2
+
+import psycopg2
+conn = psycopg2.connect(
+    user='postgres',
+    password='1234',
+    host='127.0.0.1',
+    port='5432',
+    database='dvdrental'
+)
+cursor = conn.cursor()
+cursor.execute('SELECT * FROM actor LIMIT 10')
+for row in cursor: print(row)
+conn.close()
+
+********************************************************************************
+#Socket programming
+
+#server side code
+import socket
+
+ss = socket.socket()
+print("Socket is created")
+
+ss.bind(("localhost",9999))
+
+ss.listen(4)
+print("Waiting for connection")
+
+while True:
+    cs,address = ss.accept()
+    print("Connected with :",address)
+    cs.send(byte("Welcome to myBook!!","utf-8"))
+    cs.close()
+    
+#client side code
+import socket
+
+cs=socket.socket()
+cs.connect(("localhost",9999))
+name=input("Enter your name Plz")
+cs.send(bytes(name,"utf-8"))
+cs.recv(1024).decode()
+
+**********************************************************************************
+#Property Decorators - Getters, Setters, and Deleters
+
+class employee:
+    def __init__(self,firstName,lastName):
+        self.firstName = firstName
+        self.lastName = lastName
+        #self.email = firstName+'.'+lastName+'@email.com'
+    @property
+    def email(self):
+        return '{}.{}@email.com'.format(self.firstName,self.lastName)
+    @property 
+    def employee_fullname(self):
+        return '{} {}'.format(self.firstName,self.lastName)
+        
+    @employee_fullname.setter
+    def employee_fullname(self,emp_name):
+        first,last=emp_name.split(' ')
+        self.firstName=first
+        self.lastName=last
+        
+    @employee_fullname_del.deleter
+    def employee_fullname_del(self):
+        print("Delete name!!")
+        self.firstName=None
+        self.lastName=None
+        
+emp=employee('John','Walker')
+#emp.firstName = 'Jim'
+emp.employee_fullname ='Jim Walker'
+
+print(emp.firstName)
+print(emp.lastName)
+print(emp.email)
+print(emp.employee_fullname)
+
+del emp.employee_fullname_del
+
+********************************Closure**************************************************
+#Python allows a nested function to access the outer scope of the enclosing function. 
+#This is a critical concept in decorators -- this pattern is known as a Closure.
+
+#Simple decorator function
+def decorator_func(function):
+    def wrapper():
+        func = function()
+        uppercase_name = func.upper()
+        #print(uppercase_name)
+        return uppercase_name
+    return wrapper
+    
+def display_hi():
+    return "Hello Dear"
+    
+called_func = decorator_func(display_hi)
+print(called_func())
+
+#Emaple 2:
+def decorator_func(function):
+    def wrapper():
+        func = function()
+        uppercase_name = func.upper()
+        print(uppercase_name)
+        #return uppercase_name
+    return wrapper
+
+@decorator_func  
+def display_hi():
+    return "Hello Dear"
+    
+display_hi()
+
+##Applying multiple decorator in a single function
+def split_string(function):
+    def wrapper():
+        func = function()
+        splitted_string = func.split()
+        #return splitted_string
+        print(splitted_string)
+    return wrapper
+
+def decorator_func(function):
+    def wrapper():
+        func = function()
+        uppercase_name = func.upper()
+        #print(uppercase_name)
+        return uppercase_name
+    return wrapper
+
+@split_string
+@decorator_func  
+def display_hi():
+    return "Hello Dear"
+    
+display_hi()
+
+#functools to unhide original function name
+import functools
+def decorator_func(function):
+    @functools.wraps(function)
+    def wrapper():
+        func = function()
+        uppercase_name = func.upper()
+        #print(uppercase_name)
+        return uppercase_name
+    return wrapper
+
+@decorator_func  
+def display_hi():
+    return "Hello Dear"
+    
+print(display_hi.__name__)
+
+***************************************************************************
+#Call dunder is exceuted when class object works as a function
+class Printing:
+    def __init__(self,name):
+        self.name = name
+    
+    def __call__(self):
+        print("Username name is: ",self.name)
+        
+p=Printing("Junaina")
+p()
+
+**************************************************************************
+class Decorator:
+    def __init__(self,func):
+        self.func = func
+    def __call__(self):
+        print("Inside call")
+        call_func = self.func()
+        upper_func = call_func.upper()
+        return upper_func
+    
+@Decorator
+def greet():
+    return "Inside the greet function"
+    
+print(greet())
+
+***************************************************************************
+
+#Any number of arguments in a function can have a default value. But once we have a default argument, all the arguments to its right must also have default values.
+#This means to say, non-default arguments cannot follow default arguments
+#Having a positional argument after keyword arguments will result in errors.
+
+****************************************************************************
+#Syntax of Lambda Function in python
+   lambda arguments: expression
+   
+#Lambda functions can have any number of arguments but only one expression.  
+#If we change the value of a nonlocal variable, the changes appear in the local variable.
+
+def outer():
+    x = "Local"
+    
+    def inner():
+        nonlocal x
+        x ="Nonlocal"
+        print("Inner : ",x)
+        
+    inner()
+    print("Outer :",x)
+    
+outer() 
+
+**************************docstring**********************************************************************
+#docstring must be the first line inside method,function,class else it would be considered as comment 
+
+def add_numbers(a,b):
+    '''Docstring should be first line '''
+    return a+b
+    
+print("Result is: ",add_numbers(12,14))
+print(add_numbers.__doc__)
+
+*****************Some important built in functions ****************************
+
+#all() and any()
+
+nums = [1,3,5,7,9,10]
+odd_nums = all([x%2 for x in nums])
+even_nums = any([x%2 for x in nums])
+print(odd_nums)
+print(even_nums)
+
+#enumerate() - it adds a counter in iterable and returns it
+names=["Anwar","Manwar","Wasim","Suman"]
+marks=[100,350,120,500]
+
+for counter,result in enumerate(names):
+    if result=="Wasim":
+        print("Marks obtained by ",result," is ",marks[counter])
+        break
+
+#dir() - this will give you all attributes of an object
+names=["Anwar","Manwar","Wasim","Suman"]
+print(dir(names))
+
+#eval() - this function evaluates the string passed to it as parameter
+while True:
+    print(eval(input("Enter the expression: ")))
+    
+#unpacking - this is a process to assign the values of iterables in multiple variables in single assignment
+a,b,c = (1,2,3)
+print(a)
+print(b)
+print(c)
+
+#slicing - 
+numbers = [1,2,3,4,5,6,7,8,9]
+new_numbers = numbers[1:6:2]
+print(new_numbers)
+
+#set operation
+#chaining comparison operator
+age=int(input("Enter age: "))
+if 18<age<60:
+    print("Accepted")
+else:
+    print("Rejected")
+
+#Ternary operator
+num = int(input("Enter the number: "))
+result ="Even" if num%2==0 else "Odd"
+print("Result is: ",result)
+
+**********************getattr(),setattr()**********************************************************
+
+class person:
+    pass
+
+per = person()
+
+first_key ="first"
+first_val ="ANWAR"
+
+setattr(per,first_key,first_val)
+result = getattr(per,first_key)
+
+print(result)
+
+
+*************************************************************
+from getpass import getpass
+
+username =input("Username: ")
+password =getpass("Password: ")
+print("Logging in....")
+
+********************************************
+
+a = 5
+print(type(a))
+print(type(5.0))
+x=3+4j
+print(isinstance(x,complex))
+
+#Nested list
+list_num = [2,3,4,"Sammi",[5,6,8],['a','e','i','o','u']]
+print(list_num[3][4])
+print(list_num[5][3])
+
+#Deleting list
+my_list = ['p', 'r', 'o', 'b', 'l', 'e', 'm']
+
+print('o' in my_list)
+print('O' not in my_list)
+
+del my_list[3]
+print(my_list)
+
+del my_list[2:5]
+print(my_list)
+
+del my_list
+print(my_list)
+
+********************format()**********************************************
+# Python string format() method
+
+# default(implicit) order
+default_order = "{}, {} and {}".format('John','Bill','Sean')
+print('\n--- Default Order ---')
+print(default_order)
+
+# order using positional argument
+positional_order = "{1}, {0} and {2}".format('John','Bill','Sean')
+print('\n--- Positional Order ---')
+print(positional_order)
+
+# order using keyword argument
+keyword_order = "{s}, {b} and {j}".format(j='John',b='Bill',s='Sean')
+print('\n--- Keyword Order ---')
+print(keyword_order)
+
+***************************************************************************
+
+my_string='Wish Eshan'
+print(my_string.lower())
+print(my_string.upper())
+print(my_string.split())
+print(' '.join(my_string))
+print(my_string.find('Es'))
+print(my_string.replace("Wish","Foolish"))
+
+*********************Assert*****************************************************
+
+def square(x):
+    assert x>0 ,"Only more than zero value is accepted"
+    return x*x
+    
+try:
+    result = square(3)
+    print("Result is: {}".format(result))
+    result = square(-2)
+    print("Result is: {}".format(result))
+except AssertionError as msg:
+    print(msg)
+
+************************************************************************************
+#The concept of a variable in Python is a little different from C, where it is a named memory location with a unique address. 
+#In Python, on the other hand, data objects are stored in memory, and a variable is just a label for its easy access. 
+#This is why Python is a dynamically typed language, where the type of variable need not be declared before assignment and data decides the type 
+#and not other way round (as in C/C++).
+
+
+#Decorator on class method
+def check_name(method):
+    def inner(self_name):
+        if self_name.fname=="Junaina" and self_name.lname=="Parvin":
+            method(self_name)
+        else:
+            print("Your full name is",self_name.fname+" "+self_name.lname)
+    return inner
+
+class Printing:
+    def __init__(self,firstName,lastName):
+        self.fname=firstName
+        self.lname=lastName
+        
+    @check_name    
+    def full_name(self):
+        print("Your full name is",self.fname+" "+self.lname)
+
+p=Printing("Anwar","Hossain")
+p.full_name()
+
+####Property decorator
+class Student:
+    def __init__(self,name,grade):
+        self.name=name
+        self.grade=grade
+    @property   
+    def msg(self):
+        return self.name +" got grade "+self.grade
+    @msg.setter    
+    def msg(self,msg):
+        temp_msg=msg.split(" ")
+        print(temp_msg)
+        self.name=temp_msg[0]
+        self.grade=temp_msg[-1]
+        
+stud=Student("Sammi","A")
+print(stud.name)
+print(stud.grade)
+print(stud.msg)
+stud.grade="B"
+stud.msg="Sohel has got grade A"
+print(stud.name)
+print(stud.grade)
+print(stud.msg)
+
+
+###another approach
+class Student:
+    def __init__(self,name,grade):
+        self.name=name
+        self.grade=grade
+    def getter(self):
+        return self.name +" got grade "+self.grade
+    def setter(self,msg):
+        temp_msg=msg.split(" ")
+        print(temp_msg)
+        self.name=temp_msg[0]
+        self.grade=temp_msg[-1]
+    msg=property(getter,setter)
+        
+stud=Student("Sammi","A")
+print(stud.name)
+print(stud.grade)
+print(stud.msg)
+stud.grade="B"
+stud.msg="Sohel has got grade A"
+print(stud.name)
+print(stud.grade)
+print(stud.msg)   
+
+*****************************************
+#Set and dictionary does not support indexing because of ubordered nature
+#Any object which can be loop over is called iterables
+#Iterator is an object which has only one function next() that works on object to loop over
+#Generator is a special function which can return generator iterator object using yield keyword. Any function contains yield will be automatically a generator. 
+    
+import itertools
+
+#counter=itertools.count(start=4,step=2)
+#arquement in cycle could be list/tuple
+#counter=itertools.cycle((1,2,3,4))
+#repeat the index
+counter=itertools.repeat(3,times=6)
+#print(counter)
+data=[10,20,30,40,50]
+#merge_data=list(zip(itertools.count(),data))
+#merge_data=list(zip(range(10),data))
+merge_data=list(itertools.zip_longest(range(10),data))
+print(merge_data)
+#Infinite loop
+#for num in counter:
+#    print(num)
+print(next(counter))
+print(next(counter))
+print(next(counter))
+print(next(counter))
+print(next(counter))
+print(next(counter))
+
+#map_data=map(pow,data,itertools.count())
+#map_data=map(pow,range(10),data)
+#print(list(map_data))
+
+#squares=itertools.starmap(pow,[(0,2),(1,2),(2,2),(3,2)])
+#print(list(squares))
+
+letter=['A','B','C','D','E','F']
+number=[0,1,2,3,4,5]
+names=["Anwar","Sammi","Aaban","Arhab"]
+
+#result=itertools.combinations(letter,3)
+result=itertools.permutations(letter,3)
+for num in result:
+    print(num)
+    
+Example2:
+=========   
+import itertools
+
+letter=['A','B','C','D','E','F']
+number=[0,1,2,3,4,5]
+names=["Anwar","Sammi","Aaban","Arhab"]
+
+result=itertools.product(number,repeat=4)
+for pr in result:
+    print(pr)  
+
+Example 3:
+==========
+import itertools
+import operator
+
+def check_num(n):
+    if n>2:
+        return True
+    return False
+
+letter=['A','B','C','D','E','F']
+number=[1,2,3,4,5]
+names=["Anwar","Sammi","Aaban","Arhab"]
+status=[True,True,False,True]
+
+#result=itertools.product(number,repeat=4)
+#result=itertools.combinations_with_replacement(number,4)
+#result=letter + number + names
+#print(result)
+#result = itertools.chain(letter,number,names)
+
+#format of islice(iterator,start,finish,steps)
+#result = itertools.islice(range(10),1,6,2)
+
+#with open('Basic_details.py','r') as f:
+#    result = itertools.islice(f,3)
+#    for pr in result:
+#        print(pr)
+
+#result=itertools.compress(names,status)
+#result=itertools.filterfalse(check_num,number)
+result=itertools.accumulate(number,operator.mul)
+for pr in result:
+    print(pr)
+    
+Example4:
+========
+import itertools
+
+def get_state(person):
+    return person['state']
+
+people = [
+    {
+        'name': 'John Doe',
+        'city': 'Gotham',
+        'state': 'NY'
+    },
+    {
+        'name': 'Jane Doe',
+        'city': 'Kings Landing',
+        'state': 'NY'
+    },
+    {
+        'name': 'Corey Schafer',
+        'city': 'Boulder',
+        'state': 'CO'
+    },
+    {
+        'name': 'Al Einstein',
+        'city': 'Denver',
+        'state': 'CO'
+    },
+    {
+        'name': 'John Henry',
+        'city': 'Hinton',
+        'state': 'WV'
+    },
+    {
+        'name': 'Randy Moss',
+        'city': 'Rand',
+        'state': 'WV'
+    },
+    {
+        'name': 'Nicole K',
+        'city': 'Asheville',
+        'state': 'NC'
+    },
+    {
+        'name': 'Jim Doe',
+        'city': 'Charlotte',
+        'state': 'NC'
+    },
+    {
+        'name': 'Jane Taylor',
+        'city': 'Faketown',
+        'state': 'NC'
+    }
+]
+
+person_group = itertools.groupby(people, get_state)
+copy1, copy2 = itertools.tee(person_group)
+
+for key, group in person_group:
+    #print(key,group)
+    print(key)
+    #print(key, len(list(group)))
+    for person in group:
+         print(person)
+    print()
+=====================================================
+
+l=['Anwar','Sammi']
+mp=map(list,l)
+print(list(mp))
+
+*************DefaultDict*********************************
+#defaultdict is subclass of dictionary and present in python collections module
+#it takes either a default callable object or "None" value
+
+from collections import defaultdict
+
+def default_code():
+    return "not found"
+    
+print(issubclass(defaultdict,dict))
+dfd=defaultdict(default_code)
+dfd[1]="A"
+dfd[2]="B"
+print(dfd)
+print(dfd[1])
+print(dfd[3])
+print(dfd.__missing__(1))
+print(dfd.__missing__("C"))  
+
+Example1:
+=========
+from collections import defaultdict
+
+#a list of tuples that would be grouped based on department using defaultdict
+dep = [('Sales', 'John Doe'),
+       ('Sales', 'Martin Smith'),
+       ('Accounting', 'Jane Doe'),
+       ('Marketing', 'Elizabeth Smith'),
+       ('Marketing', 'Elizabeth Smith'),
+       ('Marketing', 'Adam Doe'),
+       ('Marketing', 'Adam Doe'),
+       ('Marketing', 'Adam Doe')]
+       
+#Using list containing duplicate values
+dfd_list=defaultdict(list)
+for department,employee in dep:
+    dfd_list[department].append(employee)
+print(dfd_list)
+
+#Using set to avoid duplicate value
+dfd_set=defaultdict(set)
+for department,employee in dep:
+    dfd_set[department].add(employee)
+print(dfd_set)
+
+Example2:
+========
+from collections import defaultdict
+
+dep = [('Sales', 'John Doe'),
+        ('Sales', 'Martin Smith'),
+        ('Accounting', 'Jane Doe'),
+        ('Marketing', 'Elizabeth Smith'),
+        ('Marketing', 'Adam Doe')]
+
+dfd_count=defaultdict(int)
+for department,_ in dep:
+    dfd_count[department]+=1
+print(dfd_count)
+
+============================================
+from collections import Counter
+counter =Counter('missipissi')
+print(counter)
+============================================
+Example3:
+========
+from collections import defaultdict
+
+incomes = [('Books', 1250.00),
+           ('Books', 1300.00),
+           ('Books', 1420.00),
+           ('Tutorials', 560.00),
+           ('Tutorials', 630.00),
+           ('Tutorials', 750.00),
+           ('Courses', 2500.00),
+           ('Courses', 2430.00),
+           ('Courses', 2750.00)]
+           
+df_income=defaultdict(float)
+
+#summation of type_pro amount
+for type_pro,income in incomes:
+    df_income[type_pro] +=income
+
+#printing 
+for type_pro,income in df_income.items():
+    print("Total income on {} is {}".format(type_pro,str(income)))
+    
+=============================================================================
+#Normal Array
+import array
+arr=array.array('i',[1,2,3,5])
+for ar in range(4):
+    print(arr[ar],end=" ")
+    
+#Python NumPy is a general-purpose array processing package which provides tools for handling the n-dimensional arrays.
+#arange() function creates arrays of evenly spaced values
+#arange returns evenly spaced values within a given interval. step size is specified.
+
+import numpy as np 
+
+arr=np.array([1,2,3],dtype='int')
+arr1=np.array([[1,2,4],[3,5,6]],dtype='float')
+arr2=np.array([[1,2,3,4,5,6,7],[4,6,7,8,9,10,6]])
+print(arr)
+print(arr1)
+#get dimension
+print(arr.ndim,arr1.ndim)
+#get shape
+print(arr.shape,arr1.shape)
+#get type
+print(arr.dtype,arr.dtype)
+#get size
+print(arr.size,arr1.size)
+print(arr.itemsize,arr1.itemsize)
+#get specific item
+print(arr1[1,2])
+#get specific row
+print(arr1[1:])
+#get specific column
+print(arr1[:,0])
+#get chunk of items in a row with step [startindex:endindex:stepsize]
+print(arr2[0,1:6:3])
+arr2=np.array([[1,2,3,4,5,6,7],[4,6,7,8,9,10,6]])
+arr2[0,5]=9
+arr2[:,2]=13
+arr2[:,2]=[5,6]
+print(arr2)
+arr1=np.array([[1,2,4],[3,5,6]],dtype='float')
+arr3=np.array([[[2,3,4],[4,5,6]],[[3,5,6],[8,4,3]]])
+print(arr3[0,1,2])
+#all 0s matrix
+print(np.zeros((5,2,3)))
+#all 1s matrix
+print(np.ones((2,3),dtype='float'))
+#any other number array
+print(np.full((2,3),22))
+#any other number full_like
+print(np.full_like(arr,99))
+#Identity matrix
+print(np.identity(5))
+#be carefull when copying arrays
+arr3=arr.copy()
+arr3[0] = 100
+print(arr3,arr)
+
+a=np.ones((3,2))
+print(a)
+b=np.full((2,3),2)
+print(b)
+print(np.matmul(a,b))
+
+#arrange(startindex,endindex,steps)
+arr=np.arange(0,15,3)
+print(arr)
+arr=np.array((1,2,3),dtype="complex")
+print(arr)
+print(np.zeros((5,),dtype="float"))
+print(np.zeros(5,"int"))
+print(np.empty((5,2),"int"))
+#linespace Returns number spaces evenly w.r.t interval. 
+print(np.linspace(1,10,num=5,endpoint=True,retstep=True))
+print(np.eye(3,4,k=1,dtype=int))
+print(np.identity(5,dtype=int))
+print(np.random.rand(5,2))
+
+**************************************************************************
+import numpy as np
+#python datatype can be used as function
+x=np.float32(2)
+print(x)
+y=np.ones(3)
+#to change the data type of an existing array
+print(y.astype(int))
+#datatype can be referred as character code
+z=np.array([1,2,3,4],dtype='i')
+print(z)
+
+***************************************************
+#Advance indexing
+1.Integer indexing
+
+import numpy as np 
+
+arr=np.arange(1,10)
+index=np.array([1,3,5,7])
+print(arr)
+print(arr[index])
+
+arr2=np.array([[1,2,3,4],[5,6,7,8]])
+print(arr2)
+print(arr2[[0,1],[1,3]])
+
+2.Boolean indexing
+
+import numpy as np 
+arr=np.array([[1,-2,3,-4],[-5,6,-7,8]])
+print(arr[arr<0]*2)
+
+#Broadcasting is a mechanism to do airthmetic operation on arrays having different size or shape.
+#There are rules before doing broadcasting operation.
+#if the size of the arrays are not same then left pad 1 in the lowzer size array
+#from the left side either size of the array should be same or one of the dimesion should be 1
+#automatically array of lower size get streched and airthematic operation happens..
+
+import numpy as np 
+
+arr=np.arange(10)
+print(arr)
+print(np.reshape(arr,(2,5)))
+print(arr.reshape((5,2),order='C'))
+print(np.resize(arr,(3,4)))
+print(arr.resize((4,3)))
+
+#Flatten() and ravel() function will flat the n-dimentional array into 1-dimentional array
+arr =np.array([[1,2,3,4],[4,5,6,7]])
+print(arr.flatten(order='C'))
+print(arr.ravel(order="F"))
+
+#swapaxes is used to interchange dimention o 2-D array
+arr =np.array([[1,2,3,4],[4,5,6,7]])
+print(arr.shape)
+arr1=np.transpose(arr,axes=None)
+print(arr1.shape)
+
+print(arr.transpose((0,1)))
+print(arr1.T)
+
+art=np.array([[1,2,3,4]])
+print(art.shape)
+art1=np.swapaxes(art,0,1)
+print(art1)
+print(art.swapaxes(1,0))
+
+#concetnate() function can be applied more than one or more arrays having same dimention
+#Concatenation with respect to stipulated axis must have the same shape for other one
+
+import numpy as np 
+
+a=np.arange(6)
+b=np.arange(1,7)
+arr1 =np.array([[1,2,3,4],[4,5,6,7]])
+c=np.zeros(12)
+print(np.concatenate((a,b),out=c))
+print("Concatenated array is: ",c
+
+e=np.array([[1,2,3],[4,5,6]])
+f=np.array([[7,8,9]])
+d=np.zeros((3,3))
+print(d)
+print(np.concatenate((e,f),axis=0,out=d))
+#Throws error
+#print(np.concatenate((e,f.T),out=d))
+
+#vstack() join arrays vertically whereas hstack() function works horizontally
+e=np.array([[1,2,3],[4,5,6],[4,5,6]])
+f=np.array([[7,8,9]])
+print(np.vstack((e,f)))
+print(np.hstack((e,f.T)))
+
+#for split()/hsplit()/vsplit() function be casreful with section value
+import numpy as np 
+a=np.arange(9)
+print(np.split(a,3))
+b=np.arange(12).reshape(6,2)
+print(np.split(b,2))
+
+#numpy.insert(array,obj,values,axis=None) to insert any element in an array
+#it returns a copy of array without modifying original array
+#for one dimentional array no need to mention axis
+import numpy as np
+
+a=np.arange(1,11)
+b=np.array([[1,2],[3,4]])
+print('Actual array: ',a)
+print('Actual array: ',b)
+#if floating point number is inserted that gets converted into integer
+print(np.insert(a,(1,3),30.5))
+#without mentioning axis by default it is None and 2d array will be flatten to 1D
+print(np.insert(b,1,23))
+#broadcast inserted element to row 1 in 2d array
+print(np.insert(b,1,23,axis=0))
+#broadcast inserted element to column 1 in 2d array
+print(np.insert(b,1,23,axis=1))
+#inserted elements to column 1 in 2d array
+print(np.insert(b,1,[5,6],axis=1))
+#inserted elements to column 1 in 2d array
+print(np.insert(b,1,[4,6],axis=0))
+
+#append() function insert the elements at the end of the array
+#numpy.append(array,values,axis=None) and it returns copy of the array without modifying original array
+print(np.append(a,23))
+print(np.append(b,[[8,9]],axis=0))
+
+#numpy.delete(array,obj,axis=None) - it deletes the elements without changing original array
+print(np.delete(a,2))
+#without mentioning axis and flatten
+print(np.delete(b,2))
+#mentioning axis
+print(np.delete(b,1,axis=0))
+
+#Array multiplication and Matrix multiplication are two difefrent operations
+#In array multiplication multiplication is done element by element
+import numpy as np
+
+a=np.array([[1,2],[3,4]])
+b=np.array([[5,6],[7,8]])
+print("Array addition: ",a+b)
+#array miltiplication
+print("Array multiplication: ",a*b)
+#Matrix multiplication
+print("Matrix multiplication: ",a.dot(b))
+
+#Matrix creation using string
+mt=np.matrix("1 3 ; 4 5 ; 6 7")
+print(mt)
+
+#numpy.linalg.inv() - this will inverse on square matrix
+import numpy as np
+#inverse function can be applied on sqaure array
+a=np.array([[1,2],[3,4]])
+b=np.linalg.inv(a)
+print("Inverse Matrix: ",b)
+#allclose() returns True when two arrays are equal upto tolerence
+print(np.allclose(np.dot(a,b),np.eye(2)))
+#matrix_power() also works on square matrix
+print(np.linalg.matrix_power(a,3))
+print("Identity Matrix: ",np.linalg.matrix_power(a,0))
+
+#solve() function will give the result of linear equation
+#to find out determinant use det() function
+import numpy as np
+
+a=np.array([[1,2,3],[3,4,5],[4,3,2]])
+b=np.array([4,5,6])
+result=np.linalg.solve(a,b)
+print(result)
+result1=np.linalg.det(a)
+print(result1)
+
+*****************************************************************************
+import numpy as np
+
+a=np.empty((5,2),dtype=int)
+b=np.empty_like(a)
+print(a)
+print(b)
+print(np.asarray((1, 2, 3, 4)))
+
+*****************************************************
+#datetime
+import datetime
+
+dt=datetime.datetime.now()
+print(dt.day,dt.month,dt.year)
+print(dt.strftime("%a"))
+
+********************************************
+import numpy as np 
+
+a=np.array([[1,2,3,4],[3,4,5,6]])
+print(np.random.rand(2,3))
+print(np.random.random_sample(a.shape))
+print(np.random.randint(3,5,size=(2,3)))
+print(np.repeat(a,3,axis=0))
+
+#task1
+a1=np.ones((5,5))
+print(a1)
+a2=np.zeros((3,3))
+a2[1,1]=9
+print(a2)
+a1[1:4,1:4]=a2
+print(a1)
+
+#array creation from input file 
+np.genfromtxt(<input_filename>,delimiter=',')
+***************************************************
+******Regular Expression*****************************************
+
+import re
+
+text_to_search = '''
+abcdefghijklmnopqurtuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+1234567890
+Ha HaHa
+MetaCharacters (Need to be escaped):
+. ^ $ * + ? { } [ ] \ | ( )
+coreyms.com
+321-555-4321
+123.555.1234
+123*555*1234
+800-555-1234
+900-555-1234
+Mr. Schafer
+Mr Smith
+Ms Davis
+Mrs. Robinson
+Mr. T
+Cat 
+Mat 
+Bat
+'''
+emails = '''
+CoreyMSchafer@gmail.com
+corey.schafer@university.edu
+corey-321-schafer@my-work.net
+'''
+urls = '''
+https://www.google.com
+http://coreyms.com
+https://youtube.com
+https://www.nasa.gov
+'''
+sentence = 'Start a sentence and then bring it to an end'
+#pattern=re.compile(r'^Start')
+#pattern=re.compile(r'end$')
+#pattern=re.compile(r'[89]00[-.]\d\d\d[-.]\d\d\d\d')
+#pattern=re.compile(r'[1-5]')
+#pattern=re.compile(r'[A-Z]')
+#pattern=re.compile(r'[A-Za-z]')
+#pattern=re.compile(r'[^A-Za-z]')
+#pattern=re.compile(r'[^B]at')
+#pattern=re.compile(r'\d{3}.\d{3}.\d{4}')
+#pattern=re.compile(r'M(r|s|rs)\.?\s[A-Z]\w*')
+##EMAIL IDs
+#pattern=re.compile(r'[A-Za-z0-9._+-]+@[A-Za-z0-9-]+\.[A-Za-z0-9]+')
+##URL
+#pattern=re.compile(r'https?://(www\.)?[a-z]+\.[a-z]+')
+pattern=re.compile(r'https?://(www\.)?(\w+)(\.\w+)')
+subbed_url=pattern.sub(r'\2\3',urls)
+print(subbed_url)
+#matches=pattern.finditer(urls)
+
+#verbose expression 
+pattern=re.compile(r"""\d{3} #first 3 didgit
+                        .    #next . character
+                       \d{3} #next four digit
+                       .    #next .character
+                       \d{4} #next 3 digit
+                       """,re.X)
+matches=pattern.findall(text_to_search)
+
+#for det in matches:
+#    print(det.group(1))
+
+=========Regular EXpression's MetaCharacters===============
+/*
+.       - Any Character Except New Line
+\d      - Digit (0-9)
+\D      - Not a Digit (0-9)
+\w      - Word Character (a-z, A-Z, 0-9, _)
+\W      - Not a Word Character
+\s      - Whitespace (space, tab, newline)
+\S      - Not Whitespace (space, tab, newline)
+
+\b      - Word Boundary
+\B      - Not a Word Boundary
+^       - Beginning of a String
+$       - End of a String
+
+[]      - Matches Characters in brackets
+[^ ]    - Matches Characters NOT in brackets
+|       - Either Or
+( )     - Group
+
+Quantifiers:
+*       - 0 or More
++       - 1 or More
+?       - 0 or One
+{3}     - Exact Number
+{3,4}   - Range of Numbers (Minimum, Maximum)
+
+
+#### Sample Regexs ####
+
+[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+ */
+
+**Special characters lose their special meaning inside sets. For example, [(+*)] will match any of the literal characters '(', '+', '*', or ')'.
+##re.search(pattern, string, flags=0)
+//re.match((pattern, string, flags=0)
+//re.fullmatch(pattern, string, flags=0)
+//re.split(pattern, string, maxsplit=0, flags=0)
+//re.findall(pattern, string, flags=0)
+//re.finditer(pattern, string, flags=0)
+
+
+import re
+
+s = 'GeeksforGeeks: A computer science. portal for geeks'
+mat=re.search(r'computer',s)
+print(mat)
+print('Start index', mat.start())
+print('End index', mat.end())
+
+mat1=re.search(r'.',s)
+print(mat1)
+mat2=re.search(r'\.',s)
+print(mat2)
+
+print(re.split(r'\W+', 'Words, words, words.'))
+print(re.findall(r'\bf[a-z]*', 'which foot or hand fell fastest'))
+print(re.findall(r'(\w+)=(\d+)', 'set width=20 and height=10'))
+
+regrex='''Hello! my mobile number is 9647018163
+          and my wife's number is 7384694571
+          and my mom's number is 7432810181'''
+          
+pattern='\d+'
+string_found=re.findall(pattern,regrex)
+print(string_found)
+
+rep=re.compile('[a-e]')
+print(rep.findall(r'Aye!!what is said is said about the handsome guy.'))
+
+#to find individual number [0-9]
+rep1=re.compile('\d')
+print(rep1.findall("I went to him at 11 A.M. on 4th July 1886"))
+
+#to find a group of [0-9]
+rep1=re.compile('\d+')
+print(rep1.findall("I went to him at 11 A.M. on 4th July 1886"))
+
+#split(pattern,string,maxsplit,flags)
+print(re.split('\W+','Words, words , Words',flags=re.IGNORECASE))
+print(re.split('\W+','Words, word\'s , Words'))
+print(re.split('\d+','I went to him at 11 A.M. on 4th July 1886'))
+
+#sub(pattern,subpattern,string,count,flags)
+print(re.sub('ub','~*','Subject has Uber booked already',flags=re.IGNORECASE))
+print(re.sub('ub','~*','Subject has Uber booked already',count=1,flags=re.IGNORECASE))
+print(re.sub(r'\sand\s',' & ','Buskins and Robins',flags=re.IGNORECASE))
+
+#subn() similar as sub() except it returns a tuple
+print(re.subn('ub','~*','Subject has Uber booked already',flags=re.IGNORECASE))
+tup=re.subn('ub','~*','Subject has Uber booked already')
+print(tup)
+print("Lenght of tuple is: ",len(tup))
+print(tup[0])
+
+print(re.escape("I Asked what is this [a-9], he said \t ^WoW"))
+
+pattern=r"([a-zA-Z]+) (\d+)"
+match=re.search(pattern,"I was born on July 26")
+
+if match!=None:
+    print("Match found at %s,%s" %(match.start(),match.end()))
+    print("Full match: ",match.group(0))
+    print("First group match: ",match.group(1))
+    print("First group match: ",match.group(2))
+else:
+    print("Did not find a match!!")
+
+
+res=re.search(r'\bGeek','Welcome to GeeksForGeeks')
+print(res.start())
+print(res.end())
+#returns tuple containing start and end index
+print(res.span())
