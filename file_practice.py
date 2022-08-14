@@ -1,3 +1,11 @@
+with open("Peacock.jpg","rb") as rf:
+    with open("copy_peacock.jpg","wb") as wf:
+        size_of_file = 4096
+        content=rf.read(size_of_file)
+        while len(content)>0:
+            wf.write(content)
+            content = rf.read(size_of_file)
+
 #Print something in a file instead of sys.stdout 
 file1=open("D:\Software\Python code\python_txt.txt",'w')
 print("Python is wonderful programming language",file=file1)
