@@ -49,3 +49,53 @@ for i in range(1,n+1):
     for j in range(1,n-i+2):
         print("*",end=" ")
     print()
+
+#example 7:
+string=input("Enter the string to be printed: ")
+length=len(string)
+for i in range(length):
+    for j in range(i+1):
+        print(string[j],end="")
+    print("")
+
+#example 8:
+n = int(input("Enter the number of lines: "))
+for i in range(1,n+1):
+    for j in range(1,n+1):
+        if i==1 or j==n or i==j:
+            print("*",end="")
+        else:
+            print(end=" ")
+    print()
+
+#example 9:
+n = int(input("Enter the number of lines: "))
+for i in range(1,n+1):
+    for j in range(1,n+1):
+        if j==1 or i==j or i==n:
+            print("*",end="")
+        else:
+            print(end=" ")
+    print()
+
+#example 10:
+row = int(input("Enter the number of rows: "))
+for i in range(1,row+1):
+    for j in range(1,2*row):
+        if i==row or i+j==row+1 or j-i==row-1:
+            print("*",end="")
+        else:
+            print(end=" ")
+    print()
+
+#example 11
+row = int(input("Enter the number of rows: "))
+for i in range(1,row+1):
+    for j in range(1,2*row):
+        if i+j==row+1 or j-i==row-1:
+            print("*",end="")
+        elif i==row and j%2==0:
+            print("*",end="")
+        else:
+            print(end=" ")
+    print()
