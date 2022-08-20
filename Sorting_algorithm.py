@@ -48,11 +48,19 @@ for i in range(1,len(num)):
 print("Sorted:",num)
 
 
-#Quick sort
+#Insertion sort
+import random
+import statistics
+
 def pivot_position(list1,first,last):
-    pivot_val=list1[first]
-    left =first+1
-    right=last
+    #rand_val=random.randint(first,last)
+    #list1[rand_val],list1[last]=list1[last],list1[rand_val]
+    middle=(first+last)//2
+    piv=statistics.median([first,last,middle])
+    list1[piv], list1[last] = list1[last], list1[piv]
+    pivot_val=list1[last]
+    left =first
+    right=last-1
     while True:
         while left<=right and list1[left]<=pivot_val:
             left=left+1
@@ -63,8 +71,8 @@ def pivot_position(list1,first,last):
             break
         else:
             list1[left],list1[right]=list1[right],list1[left]
-    list1[first],list1[right] = list1[right],list1[first]
-    return right
+    list1[last],list1[left] = list1[left],list1[last]
+    return left
 
 
 def quick_sort(list1,first,last):
