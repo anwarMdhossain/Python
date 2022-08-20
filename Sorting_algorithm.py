@@ -47,8 +47,8 @@ for i in range(1,len(num)):
 
 print("Sorted:",num)
 
+
 #Quick sort
-#Insertion sort
 def pivot_position(list1,first,last):
     pivot_val=list1[first]
     left =first+1
