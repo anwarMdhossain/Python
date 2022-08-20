@@ -47,5 +47,39 @@ for i in range(1,len(num)):
 
 print("Sorted:",num)
 
+#Quick sort
+#Insertion sort
+def pivot_position(list1,first,last):
+    pivot_val=list1[first]
+    left =first+1
+    right=last
+    while True:
+        while left<=right and list1[left]<=pivot_val:
+            left=left+1
+        while left<=right and list1[right]>=pivot_val:
+            right=right-1
+
+        if left>right:
+            break
+        else:
+            list1[left],list1[right]=list1[right],list1[left]
+    list1[first],list1[right] = list1[right],list1[first]
+    return right
+
+
+def quick_sort(list1,first,last):
+    if first<last:
+        pivot=pivot_position(list1,first,last)
+        quick_sort(list1,first,pivot-1)
+        quick_sort(list1,pivot+1,last)
+
+
+n=int(input("How many numbers in the list you want? "))
+num=[int(input("Enter number: ")) for x in range(n)]
+print("Original:",num)
+length=len(num)
+quick_sort(num,0,length-1)
+print(num)
+
 
 
