@@ -28,3 +28,43 @@ for _ in iter(int,1):
     else:
         print("Alphabet found")
         break
+
+**********************************************
+#Generator function example with execution time
+import random
+import time,memory_profiler
+
+names=["Anwar","Junaina","Manwar","Rose","Aaban","Arshiya","Azhar"]
+stream=["Science","Arts","Commerce","FashionDesign","Astrology","Psychology"]
+
+def get_list(number):
+    list1=[]
+    for x in range(number):
+        student={
+                    "id" : x,
+                    "name" : random.choice(names),
+                    "dept" : random.choice(stream)
+                }
+        list1.append(student)
+    return list1
+
+def get_generator(number):
+    for x in range(number):
+        student = {
+            "id": x,
+            "name": random.choice(names),
+            "dept": random.choice(stream)
+        }
+        yield student
+
+if __name__=="__main__":
+    print("Before execution {}MB memory is used".format(memory_profiler.memory_usage()))
+    t1=time.time()
+    data_list=get_list(1000000)
+    t2=time.time()
+    print("After execution {}MB memory is used".format(memory_profiler.memory_usage()))
+    print("Time taken {} for execution".format(t2-t1))
+    '''print(next(get_generator(1000000)))
+    t2 = time.time()
+    print("After execution {}MB memory is used".format(memory_profiler.memory_usage()))
+    print("Time taken {} for execution".format(t2-t1))'''
