@@ -48,7 +48,76 @@ for i in range(1,len(num)):
 print("Sorted:",num)
 
 
-#Insertion sort
+#Merge Sort
+def mergeSort(num):
+    #to check the length of array
+    if len(num)>1:
+        mid=len(num)//2
+        lnum=num[:mid]
+        rnum=num[mid:]
+
+        #cll merge function recursive until we get the base containing one item
+        mergeSort(lnum)
+        mergeSort(rnum)
+
+        #initialize three variables for 1 pointer of each array and 1 pointer for final array
+        i=j=k=0
+
+        while i<len(lnum) and j<len(rnum):
+            if lnum[i]<rnum[j]:
+                num[k]=lnum[i]
+                i += 1
+            else:
+                num[k] = rnum[j]
+                j += 1
+            k +=1
+
+        while i<len(lnum):
+            num[k]=lnum[i]
+            i +=1
+            k +=1
+
+        while j<len(rnum):
+            num[k]=rnum[j]
+            j +=1
+            k +=1
+
+if __name__=="__main__":
+    n=int(input("How many numbers in the list you want? "))
+    num=[int(input("Enter number: ")) for x in range(n)]
+    print("Original:",num)
+    mergeSort(num)
+    print("Sorted:",num)
+	
+	
+#QuickSort
+def quickSort(num,low,high):
+    if low<high:
+        part=partition(num,low,high)
+        #call quickSort function recursively until we get the base containing one item
+        quickSort(num,low,part-1)
+        quickSort(num,part,high)
+
+def partition(num,low,high):
+    pivot=num[high]
+    pos=low-1
+    for i in range(low,high):
+        if num[i]<=pivot:
+            pos +=1
+            num[pos],num[i]=num[i],num[pos]
+    num[pos+1],num[high]=pivot,num[pos+1]
+    return pos+1
+
+
+if __name__=="__main__":
+    n=int(input("How many numbers in the list you want? "))
+    num=[int(input("Enter number: ")) for x in range(n)]
+    print("Original:",num)
+    quickSort(num,0,len(num)-1)
+    print("Sorted:",num)
+	
+
+#Quick Sort
 import random
 import statistics
 
@@ -88,6 +157,8 @@ print("Original:",num)
 length=len(num)
 quick_sort(num,0,length-1)
 print(num)
+
+
 
 
 
